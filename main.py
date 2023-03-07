@@ -1,4 +1,5 @@
 from random import randint
+from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name: str, char_class: str) -> str:
@@ -7,7 +8,7 @@ def attack(char_name: str, char_class: str) -> str:
     elif char_class == 'mage':
         return f'{char_name} нанёс урон противнику равный {5 + randint(5, 10)}'
     elif char_class == 'healer':
-        return ('f{char_name} нанёс урон противнику равный'
+        return (f'{char_name} нанёс урон противнику равный'
                 f'{5 + randint(-3, -1)}')
 
 
@@ -82,17 +83,14 @@ def choice_char_class() -> str:
     return char_class
 
 
-def main() -> str:
+if __name__ == '__main__':
+    run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: str = input('...назови себя: ')
-    print(
-        f'Здравствуй, {char_name}! '
-        'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
+    print(f'Здравствуй, {char_name}! '
+          'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class()
     print(start_training(char_name, char_class))
-    
-
-main()
